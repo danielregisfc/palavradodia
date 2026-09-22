@@ -1,0 +1,159 @@
+body {
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121213;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+#grid {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.correct {
+    background-color: #6aaa64;
+    border-color: #6aaa64;
+}
+.present {
+    background-color: #c9b458;
+    border-color: #c9b458;
+}
+.absent {
+    background-color: #787c7e;
+    border-color: #787c7e;
+}
+
+/* Mensagem de vitória/derrota */
+.mensagem {
+    margin-top: 20px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    animation: aparecer 0.3s ease-in-out;
+}
+
+.mensagem.vitoria {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.mensagem.derrota {
+    background-color: #c9433a;
+    color: white;
+}
+
+.mensagem.aviso {
+    background-color: #c9b458;
+    color: #121213;
+}
+
+.escondida {
+    display: none;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Teclado virtual */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.teclado-linha {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tecla {
+    width: 43px;
+    height: 58px;
+    border: none;
+    border-radius: 6px;
+    background-color: #818384;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.tecla:active {
+    opacity: 0.7;
+}
+
+.tecla.wide {
+    width: 65px;
+    font-size: 0.75rem;
+}
+
+.tecla.correct {
+    background-color: #6aaa64;
+}
+
+.tecla.present {
+    background-color: #c9b458;
+}
+
+.tecla.absent {
+    background-color: #3a3a3c;
+}
+
+/* Botão Jogar Novamente */
+.btn-novo-jogo {
+    margin-top: 20px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    background-color: #818384;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-novo-jogo:hover {
+    background-color: #565758;
+}
+
+.btn-novo-jogo:active {
+    transform: scale(0.96);
+}
